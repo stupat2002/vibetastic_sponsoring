@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style></style>
+        </head>
+        <body>
+            
+
+
+  <meta charset="UTF-8">
+  <title>VibeTastic Unterstützung</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #1c1c1e;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    p.intro {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .option-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .option {
+      background: #29292c;
+      border-radius: 12px;
+      padding: 25px 20px;
+      width: 220px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .option:hover {
+      background: #333;
+      border-color: #4da6ff;
+      transform: scale(1.05);
+    }
+
+    .option.active {
+      border-color: #4da6ff;
+      background: #2e2e31;
+    }
+
+    .option i {
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #4da6ff;
+    }
+
+    .option h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .option p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #bbb;
+    }
+
+    .sub-options-wrapper {
+      border-top: 2px solid #444;
+      margin-top: 30px;
+      padding-top: 20px;
+    }
+
+    .sub-options-wrapper h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #4da6ff;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .sponsoring-link {
+      margin-top: 30px; /* <-- Hier Abstand vergrößert */
+    }
+
+    .sponsoring-link a {
+      background: #4da6ff;
+      color: #fff;
+      padding: 14px 22px;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .sponsoring-link a:hover {
+      background: #66b3ff;
+    }
+  </style>
+
+
+  <div class="container">
+    <h1>Wie möchtest du VibeTastic unterstützen?</h1>
+    <p class="intro">Wähle eine der beiden Möglichkeiten aus – entweder als <strong>Sponsor</strong> ohne Gegenleistung oder als <strong>Werbepartner</strong> mit Sichtbarkeit auf unseren Plattformen.</p>
+
+    <div class="option-group" id="main-options">
+      <div class="option" data-type="sponsoring" id="sponsoring-option">
+        <i class="fas fa-heart"></i>
+        <h3>Sponsoring</h3>
+        <p>Ab 50.–/Jahr<br>Unterstütze VibeTastic ohne Schnickschnack.</p>
+      </div>
+
+      <div class="option" data-type="werbepartner" id="werbepartner-option">
+        <i class="fas fa-bullhorn"></i>
+        <h3>Werbepartnerschaft</h3>
+        <p>Ab 480.–/Jahr<br>Präsentiere dein Unternehmen auf unseren Plattformen.</p>
+      </div>
+    </div>
+
+    <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
+      <h2>Sponsoring</h2>
+      <p>Einfach &amp; fair: Du spendest 50.– CHF oder mehr – je nachdem, wie sehr dein Herz für VibeTastic schlägt ❤️</p>
+      <p>Falls du besonders grosszügig bist: <br><strong>Über das Feld "Menge" im Stripe-Checkout kannst du den Betrag in 50-Franken-Schritten einfach anpassen!</strong></p>
+      <div class="sponsoring-link">
+        <a href="https://buy.stripe.com/aFa8wQa67c7zdLY45jd7q01" target="_blank">Jetzt Sponsor werden</a>
+      </div>
+    </div>
+
+    <div class="sub-options-wrapper hidden" id="sub-options-werbung">
+      <h2>Werbeform wählen (K1 – K3)</h2>
+      <div class="option-group">
+        <a class="option" href="https://buy.stripe.com/9B6eVe2DFfjLazMatHd7q00" target="_blank">
+          <i class="fas fa-list"></i>
+          <h3>K1 – Listenformat</h3>
+          <p>480.–/Jahr<br>Textlich präsent – schlicht &amp; effektiv.</p>
+        </a>
+        <a class="option" href="https://buy.stripe.com/6oU00ka670oRdLY59nd7q02" target="_blank">
+          <i class="fas fa-table"></i>
+          <h3>K2 – Tabellenformat</h3>
+          <p>1440.–/Jahr<br>Mit Logo. Für alle, die zeigen wollen, dass sie's ernst meinen.</p>
+        </a>
+        <a class="option" href="https://buy.stripe.com/fZuaEYemnc7zeQ231fd7q03" target="_blank">
+          <i class="fas fa-tv"></i>
+          <h3>K3 – Fullscreen</h3>
+          <p>8400.–/Jahr<br>All eyes on you – deine Werbung ganz gross.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sponsoringOption = document.getElementById('sponsoring-option');
+    const werbepartnerOption = document.getElementById('werbepartner-option');
+    const sponsoringWrapper = document.getElementById('sub-options-sponsoring');
+    const werbungWrapper = document.getElementById('sub-options-werbung');
+
+    sponsoringOption.addEventListener('click', () => {
+      sponsoringWrapper.classList.remove('hidden');
+      werbungWrapper.classList.add('hidden');
+      document.querySelectorAll('#main-options .option').forEach(o => o.classList.remove('active'));
+      sponsoringOption.classList.add('active');
+    });
+
+    werbepartnerOption.addEventListener('click', () => {
+      werbungWrapper.classList.remove('hidden');
+      sponsoringWrapper.classList.add('hidden');
+      document.querySelectorAll('#main-options .option').forEach(o => o.classList.remove('active'));
+      werbepartnerOption.classList.add('active');
+    });
+  </script>
+
+
+
+            <script>// Write JavaScript here</script>
+        
+    
+</body>
