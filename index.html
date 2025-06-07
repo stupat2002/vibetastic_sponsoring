@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>VibeTastic Partner</title>
+  <title>VibeTastic Unterstützung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link
     rel="stylesheet"
@@ -63,7 +63,7 @@
       background: #29292c;
       border-radius: 12px;
       padding: 20px;
-      width: 175px;
+      width: 180px;
       cursor: pointer;
       text-align: center;
       transition: all 0.3s ease;
@@ -163,10 +163,25 @@
       .text-options {
         width: 100%;
       }
+      #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.15; /* Ändere z.B. auf 0.25 oder 0.05 je nach Sichtbarkeit */
+  pointer-events: none; /* Verhindert Klick-Blockierung */
+}
     }
   </style>
 </head>
 <body>
+  <video autoplay muted loop playsinline id="bg-video">
+  <source src="background.mp4" type="video/mp4" />
+  Dein Browser unterstützt kein HTML5-Video.
+</video>
   <div class="main-container">
     <div class="content-section">
       <div class="text-options">
