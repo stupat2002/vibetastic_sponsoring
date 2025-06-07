@@ -181,38 +181,82 @@
 }
 
 @media (max-width: 768px) {
+  body {
+    padding: 10px 0px 100px 0px; /* Weniger Padding oben und unten */
+  }
+
   .content-section {
-    flex-direction: column-reverse; /* Video zuerst */
-    align-items: center;
-  }
-
-  .video-wrapper {
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .video-wrapper video {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 9 / 16;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    margin: 0 10px;
   }
 
   .text-options {
     width: 100%;
   }
+
+  .option-group {
+    justify-content: center;
+  }
+
+  .option {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 16px;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0; /* Video oben, kein Abstand oben */
+    margin-bottom: 20px; /* optional Abstand nach unten */
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    min-height: 300px; /* Video ist nicht mehr zu kurz */
+  }
+
+  .sub-options-wrapper {
+    padding-top: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .intro {
+    font-size: 14px;
+  }
+
+  .option h3 {
+    font-size: 16px;
+  }
+
+  .option p {
+    font-size: 12px;
+  }
+
+  .sponsoring-link a {
+    width: 100%;
+    text-align: center;
+  }
+
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+  }
 }
 
-}
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.15; /* Ändere z.B. auf 0.25 oder 0.05 je nach Sichtbarkeit */
-  pointer-events: none; /* Verhindert Klick-Blockierung */
 }
     }
   </style>
