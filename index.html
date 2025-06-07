@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-            <style></style>
-        </head>
-        <body>
-            
-
-
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>VibeTastic Unterstützung</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <style>
     body {
       background: #111;
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: "Segoe UI", sans-serif;
       margin: 0;
       padding: 20px;
     }
 
     .main-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
       max-width: 1200px;
       margin: 0 auto;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: row-reverse;
     }
 
+    /* Content mit Text + Video nebeneinander */
     .content-section {
-      flex: 1 1 400px;
       background: #1c1c1e;
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .text-options {
+      flex: 1 1 400px;
+      min-width: 320px;
     }
 
     h1 {
@@ -133,122 +135,166 @@
       background: #66b3ff;
     }
 
-    .video-section {
-      flex: 1 1 300px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .promo-video {
-      width: 270px;
-      height: 480px;
+    /* Video rechts neben dem Text */
+    .video-wrapper {
+      flex: 0 0 400px;
+      max-width: 400px;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
+    .video-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 9 / 16;
+    }
+
     @media (max-width: 768px) {
-      .main-container {
+      .content-section {
         flex-direction: column;
         align-items: center;
       }
-
-      .promo-video {
-        width: 90%;
-        height: auto;
-        aspect-ratio: 9 / 16;
+      .video-wrapper {
+        max-width: 90vw;
+        margin-bottom: 20px;
+      }
+      .text-options {
+        width: 100%;
       }
     }
   </style>
-
-
-
+</head>
+<body>
   <div class="main-container">
-    
-    <!-- Rechte Seite – Video (bei Mobile oben) -->
-    <div class="video-section">
-      <video class="promo-video" autoplay="" playsinline="" controls="">
-        <source src="video.mp4" type="video/mp4">
-        Dein Browser unterstützt kein HTML5-Video.
-      </video>
-    </div>
-
-    <!-- Linke Seite – Optionen -->
     <div class="content-section">
-      <h1>Wie möchtest du VibeTastic unterstützen?</h1>
-      <p class="intro">Wähle eine der beiden Möglichkeiten aus – entweder als <strong>Sponsor</strong> ohne Gegenleistung oder als <strong>Werbepartner</strong> mit entsprechender Sichtbarkeit auf unseren Plattformen.</p>
+      <div class="text-options">
+        <h1>Wie möchtest du VibeTastic unterstützen?</h1>
+        <p class="intro">
+          Wähle eine der beiden Möglichkeiten aus – entweder als
+          <strong>Sponsor</strong> ohne Gegenleistung oder als
+          <strong>Werbepartner</strong> mit entsprechender Sichtbarkeit auf
+          unseren Plattformen.
+        </p>
 
-      <div class="option-group" id="main-options">
-        <div class="option" data-type="sponsoring" id="sponsoring-option">
-          <i class="fas fa-heart"></i>
-          <h3>Sponsoring</h3>
-          <p>Ab 5.–/Monat<br>Unterstütze VibeTastic ohne Schnickschnack.</p>
+        <div class="option-group" id="main-options">
+          <div class="option" data-type="sponsoring" id="sponsoring-option">
+            <i class="fas fa-heart"></i>
+            <h3>Sponsoring</h3>
+            <p>Ab 5.–/Monat<br />Unterstütze VibeTastic ohne Schnickschnack.</p>
+          </div>
+
+          <div class="option" data-type="werbepartner" id="werbepartner-option">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Werbepartnerschaft</h3>
+            <p>Ab 40.–/Monat<br />Präsentiere dein Unternehmen an all unseren Events.</p>
+          </div>
         </div>
 
-        <div class="option" data-type="werbepartner" id="werbepartner-option">
-          <i class="fas fa-bullhorn"></i>
-          <h3>Werbepartnerschaft</h3>
-          <p>Ab 40.–/Monat<br>Präsentiere dein Unternehmen an all unseren Events.</p>
+        <div
+          class="sub-options-wrapper hidden"
+          id="sub-options-sponsoring"
+        >
+          <h2>Sponsoring</h2>
+          <p>
+            Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem,
+            wie sehr dein Herz für VibeTastic schlägt ❤️
+          </p>
+          <p>
+            Falls du besonders grosszügig bist: <br /><strong>
+              Über das Feld "Menge" im Stripe-Checkout kannst du den Betrag in
+              5-Franken-Schritten einfach anpassen!
+            </strong>
+          </p>
+          <div class="sponsoring-link">
+            <a
+              href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b"
+              target="_blank"
+              >Jetzt Sponsor werden</a
+            >
+          </div>
+        </div>
+
+        <div class="sub-options-wrapper hidden" id="sub-options-werbung">
+          <h2>Werbeform wählen (K1 – K3)</h2>
+          <div class="option-group">
+            <a
+              class="option"
+              href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a"
+              target="_blank"
+            >
+              <i class="fas fa-list"></i>
+              <h3>K1 – Listenformat</h3>
+              <p>
+                <strong>40.–/Monat</strong><br />
+                12 Monate Listenplatz an allen Events mittels Text.<br />
+                Wir kontaktieren dich nach dem Kauf.
+              </p>
+            </a>
+            <a
+              class="option"
+              href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09"
+              target="_blank"
+            >
+              <i class="fas fa-table"></i>
+              <h3>K2 – Tabellenformat</h3>
+              <p>
+                <strong>120.–/Monat</strong><br />
+                12 Monate Tabellenplatz an allen Events mittels Text und
+                Logo.<br />
+                Wir kontaktieren dich nach dem Kauf.
+              </p>
+            </a>
+            <a
+              class="option"
+              href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08"
+              target="_blank"
+            >
+              <i class="fas fa-tv"></i>
+              <h3>K3 – Fullscreen</h3>
+              <p>
+                <strong>700.–/Monat</strong><br />
+                12 Monate Fullscreen-Anzeige an allen Events.<br />
+                Wir kontaktieren dich nach dem Kauf.
+              </p>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
-        <h2>Sponsoring</h2>
-        <p>Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem, wie sehr dein Herz für VibeTastic schlägt ❤️</p>
-        <p>Falls du besonders grosszügig bist: <br><strong>Über das Feld "Menge" im Stripe-Checkout kannst du den Betrag in 5-Franken-Schritten einfach anpassen!</strong></p>
-        <div class="sponsoring-link">
-          <a href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b" target="_blank">Jetzt Sponsor werden</a>
-        </div>
-      </div>
-
-      <div class="sub-options-wrapper hidden" id="sub-options-werbung">
-        <h2>Werbeform wählen (K1 – K3)</h2>
-        <div class="option-group">
-          <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
-            <i class="fas fa-list"></i>
-            <h3>K1 – Listenformat</h3>
-           <p><strong>40.–/Monat</strong><br>12 Monate Listenplatz an allen Events mittels Text.<br>Wir kontaktieren dich nach dem Kauf.</p>
-          </a>
-          <a class="option" href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09" target="_blank">
-            <i class="fas fa-table"></i>
-            <h3>K2 – Tabellenformat</h3>
-            <p><strong>120.–/Monat</strong><br>12 Monate Tabellenplatz an allen Events mittels Text und Logo.<br>Wir kontaktieren dich nach dem Kauf.</p>
-          </a>
-          <a class="option" href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08" target="_blank">
-            <i class="fas fa-tv"></i>
-            <h3>K3 – Fullscreen</h3>
-            <p><strong>700.–/Monat</strong><br>12 Monate Fullscreen-Anzeige an allen Events.<br>Wir kontaktieren dich nach dem Kauf.</p>
-          </a>
-        </div>
+      <div class="video-wrapper">
+        <video autoplay playsinline controls muted>
+          <source src="video.mp4" type="video/mp4" />
+          Dein Browser unterstützt kein HTML5-Video.
+        </video>
       </div>
     </div>
-
   </div>
 
   <script>
-    const sponsoringOption = document.getElementById('sponsoring-option');
-    const werbepartnerOption = document.getElementById('werbepartner-option');
-    const sponsoringWrapper = document.getElementById('sub-options-sponsoring');
-    const werbungWrapper = document.getElementById('sub-options-werbung');
+    const sponsoringOption = document.getElementById("sponsoring-option");
+    const werbepartnerOption = document.getElementById("werbepartner-option");
+    const sponsoringWrapper = document.getElementById("sub-options-sponsoring");
+    const werbungWrapper = document.getElementById("sub-options-werbung");
 
-    sponsoringOption.addEventListener('click', () => {
-      sponsoringWrapper.classList.remove('hidden');
-      werbungWrapper.classList.add('hidden');
-      document.querySelectorAll('#main-options .option').forEach(o => o.classList.remove('active'));
-      sponsoringOption.classList.add('active');
+    sponsoringOption.addEventListener("click", () => {
+      sponsoringWrapper.classList.remove("hidden");
+      werbungWrapper.classList.add("hidden");
+      document
+        .querySelectorAll("#main-options .option")
+        .forEach((o) => o.classList.remove("active"));
+      sponsoringOption.classList.add("active");
     });
 
-    werbepartnerOption.addEventListener('click', () => {
-      werbungWrapper.classList.remove('hidden');
-      sponsoringWrapper.classList.add('hidden');
-      document.querySelectorAll('#main-options .option').forEach(o => o.classList.remove('active'));
-      werbepartnerOption.classList.add('active');
+    werbepartnerOption.addEventListener("click", () => {
+      werbungWrapper.classList.remove("hidden");
+      sponsoringWrapper.classList.add("hidden");
+      document
+        .querySelectorAll("#main-options .option")
+        .forEach((o) => o.classList.remove("active"));
+      werbepartnerOption.classList.add("active");
     });
   </script>
-
-
-
-            <script>// Write JavaScript here</script>
-        
-    
 </body>
+</html>
